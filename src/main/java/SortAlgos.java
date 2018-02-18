@@ -43,7 +43,9 @@ public final class SortAlgos {
          */
         public static void selectionSort(Item vec[])
                 throws NullPointerException {
-                if (vec == null) throw new NullPointerException();
+                if (vec == null) {
+                        throw new NullPointerException();
+                }
 
                 int minIndx;            // Index of smallest key in each pass
                 int bottom;             // bottom for each pass
