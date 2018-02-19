@@ -301,17 +301,17 @@ public final class SortAlgos {
         private static void heapify(Item[] vec, int top, int bottom) {
                 Item temp;
                 int child;
+                int topCompare = 2*top+1;
+                if (topCompare > bottom) return; // nothing to do
 
-                if (2*top+1 > bottom) return; // nothing to do
-
-                if (2*top+2 > bottom) {
+                if (topCompare + 1 > bottom) {
                         // vec[2*top+1] is only child of vec[top]
-                        child = 2*top+1;
+                        child = topCompare;
                 } else {                  // 2 sons, determine bigger one
-                        if (vec[2*top+1].key > vec[2*top+2].key) {
-                                child = 2*top+1;
+                        if (vec[2*top+1].key > vec[topCompare+1].key) {
+                                child = topCompare;
                         } else {
-                                child = 2*top+2;
+                                child = topCompare + 1;
                         }
                 }//endif
 
