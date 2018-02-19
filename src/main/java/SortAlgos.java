@@ -43,9 +43,11 @@ public final class SortAlgos {
          */
         public static void selectionSort(Item vec[])
                 throws NullPointerException {
+
                 if (vec == null) {
                         throw new NullPointerException();
                 }
+
 
                 int minIndx;            // Index of smallest key in each pass
                 int bottom;             // bottom for each pass
@@ -128,11 +130,20 @@ public final class SortAlgos {
          * has to be inserted at <code>insPos</code>
          */
         private static void insertAtPosition(Item[] vec, int insPos,
-                                             int fromPos ) {
+
+                                             int fromPos) {
                 if (insPos == fromPos) return;
                 System.out.println("here");
                 Item temp = vec[fromPos];
-                for (int i = fromPos; i > insPos; i--) vec[i] = vec[i-1];
+                if (insPos < fromPos) {
+                        for (int i = fromPos; i > insPos; i--) {
+                                vec[i] = vec[i - 1];
+                        }
+                } else {
+                        for (int i = fromPos; i < insPos; i++) {
+                                vec[i] = vec[i + 1];
+                        }
+                }
                 vec[insPos] = temp;
         }
 
